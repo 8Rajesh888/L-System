@@ -52,7 +52,7 @@ function drawFractalTree(x, y, length, angle, depth) {
 
     const nextLength = length * 0.8;
 
-    drawFractalTree(nextX, nextY, nextLength, angle - Math.PI / 4, depth - 1);
+    drawFractalTree(nextX, nextY, nextLength, angle - Math.PI / 20, depth - 1);
     drawFractalTree(nextX, nextY, nextLength, angle + Math.PI / 4, depth - 1);
 }
 
@@ -65,7 +65,7 @@ function draw(world) {
     const y = world.window.height - 150;
     const length = 120;
     const angle = -Math.PI / 2;
-    const depth = 5;
+    const depth = 20;
 
     drawFractalTree(x, y, length, angle, depth);
 
