@@ -1,6 +1,7 @@
 // const sketch = require("./kochCurve");
 // const sketch = require("./sketch");
-const sketch = require("./circle");
+const sketch = require("./parallelogram");
+// const sketch = require("./circle");
 // const sketch = require("./random4");
 // const sketch = require("./random3");
 // const sketch = require("./random2");
