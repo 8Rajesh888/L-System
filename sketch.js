@@ -18,7 +18,8 @@ function setup() {
         window: {
             width: screenWidth,
             height: screenHeight,
-        }
+        },
+        cf: 0,
     };
 }
 
@@ -52,11 +53,13 @@ function drawFractalTree(x, y, length, angle, depth) {
 
     const nextLength = length * 0.8;
 
-    drawFractalTree(nextX, nextY, nextLength, angle - Math.PI / 20, depth - 1);
-    drawFractalTree(nextX, nextY, nextLength, angle + Math.PI / 4, depth - 1);
+    drawFractalTree(nextX, nextY, nextLength, angle - Math.PI / 6, depth - 1);
+    drawFractalTree(nextX, nextY, nextLength, angle + Math.PI / 6, depth - 1);
 }
 
-function update() { }
+function update(world) {
+    world.cf++;
+}
 
 function draw(world) {
     r.BeginDrawing();
