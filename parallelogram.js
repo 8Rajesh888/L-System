@@ -25,6 +25,7 @@ function getEdges(point, v1, v2) {
         1: e2,
         2: e4,
         3: e3,
+        side,
     }
 }
 
@@ -32,7 +33,7 @@ function setup() {
     const screenWidth = 1000;
     const screenHeight = 1000;
     const FPS = 30;
-    const world = {};
+
     const point = {
         x: 300,
         y: 300,
@@ -45,6 +46,7 @@ function setup() {
         side: 350,
         angle: 120,
     };
+
     const points = getEdges(point, vec1, vec2);
 
     r.SetTraceLogLevel(r.LOG_NONE);
@@ -82,13 +84,23 @@ function draw(world) {
         r.DrawLineEx(p[i], p[(i + 1) % 4], 3, r.BLACK);
     }
 
-    // r.DrawRectangleLines(100, 100, 200, 300, r.BEIGE)
-    // for (let i = 0; i < 100; i++) {
-    //     const x = Math.random() * 200 + 100;
-    //     const y = Math.random() * 300 + 100;
-    //     const colour = world.palatte[i % 5];
-    //     r.DrawCircle(x, y, 5, colour);
-    // }
+    for (let i = 0; i < 100; i++) {
+        const t1 = Math.random();
+        const t2 = Math.random();
+        const start = p[0];
+
+        const vec1X = p[1].x - p[0].x;
+        const vec1Y = p[1].y - p[0].y;
+
+        const vec2X = p[3].x - p[0].x;
+        const vec2Y = p[3].y - p[0].y;
+
+        const x = start.x + (t1 * vec1X) + (t2 * vec2X);
+        const y = start.y + (t1 * vec1Y) + (t2 * vec2Y);
+
+        const colour = world.palatte[i % 5];
+        r.DrawCircle(x, y, 5, colour);
+    }
 
     r.EndDrawing();
 
