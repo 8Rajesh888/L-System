@@ -29,7 +29,6 @@ function setup() {
     const screenWidth = 1000;
     const screenHeight = 1000;
     const FPS = 60;
-    const world = {};
     const points = {
         total: 1000000,
     };
